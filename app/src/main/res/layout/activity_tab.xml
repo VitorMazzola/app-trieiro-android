@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/gray5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomBar"/>
+
+    <com.vlntdds.bottombar.BottomBar
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:isScrollContainer="false"
+        app:bb_activeTabAlpha="1"
+        app:bb_activeTabColor="@color/colorPrimary"
+        app:bb_inActiveTabColor="@color/disable_tab"
+        app:bb_showShadow="true"
+        app:bb_tabXmlResource="@xml/bottom_bar_tabs"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/background_bottom_bar"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
