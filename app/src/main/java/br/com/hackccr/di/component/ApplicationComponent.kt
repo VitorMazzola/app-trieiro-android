@@ -5,6 +5,7 @@ import br.com.hackccr.App
 import br.com.hackccr.di.module.ApiModule
 import br.com.hackccr.di.module.ApplicationModule
 import br.com.hackccr.di.module.InteractorModule
+import br.com.hackccr.features.maps.MapInteractor
 import com.google.gson.Gson
 import dagger.Component
 import javax.inject.Singleton
@@ -24,4 +25,6 @@ interface ApplicationComponent {
     fun gson() : Gson
 
     fun context(): Context
+
+    fun mapInteractor() : MapInteractor
 }

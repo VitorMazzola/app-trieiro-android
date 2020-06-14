@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply from: 'buildFlavors.gradle'
 
 android {
     compileSdkVersion 29
@@ -15,13 +16,27 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField "String", "API_URL", "\"http://api-minha-festa-env.pgpy99fqh8.us-east-2.elasticbeanstalk.com\""
+        buildConfigField "String", "API_URL", "\"https://c5e0aac44d23.ngrok.io/v1\""
+        resValue "string", "application_name", "Trieiro"
+        resValue "string", "google_maps_key", "AIzaSyDAiq_XS8wIQBAf1H73tUVOkWGdjd-AuXE"
     }
 
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            minifyEnabled false
+            testCoverageEnabled true
+            shrinkResources false
+            debuggable true
+            ext.enableCrashlytics = false
+            crunchPngs false
+            aaptOptions {
+                cruncherEnabled false
+            }
         }
     }
 
@@ -79,10 +94,17 @@ dependencies {
     //Location
     implementation 'com.github.delight-im:Android-SimpleLocation:v1.0.1'
     implementation 'net.sharewire:google-maps-clustering:0.1.3'
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+    implementation 'com.firebase:geofire-android:3.0.0'
 
     //Hawk
     implementation 'com.orhanobut:hawk:2.0.1'
 
     //Permissions
     implementation 'com.karumi:dexter:6.0.0'
+
+    //Firebase
+    implementation 'com.google.firebase:firebase-analytics:17.4.3'
 }
+
+apply plugin: 'com.google.gms.google-services'

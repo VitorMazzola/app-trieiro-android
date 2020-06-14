@@ -1,0 +1,30 @@
+apply plugin: 'com.android.application'
+
+android {
+    flavorDimensions 'trieiro'
+
+    productFlavors {
+        develop {
+            matchingFallbacks = ['dev']
+            applicationIdSuffix '.trieiro.dev'
+
+            buildConfigField "String", "API_URL", "\"http://trieiro.us-east-2.elasticbeanstalk.com/v1/\""
+            resValue "string", "application_name", "Trieiro - Dev"
+            resValue "string", "google_maps_key", "AIzaSyDAiq_XS8wIQBAf1H73tUVOkWGdjd-AuXE"
+        }
+
+        homolog {
+            matchingFallbacks = ['homolog']
+            applicationIdSuffix '.trieiro.pre'
+
+            buildConfigField "String", "API_URL", "\"https://c5e0aac44d23.ngrok.io/v1\""
+            resValue "string", "application_name", "Trieiro - HML"
+            resValue "string", "google_maps_key", "AIzaSyDAiq_XS8wIQBAf1H73tUVOkWGdjd-AuXE"
+        }
+
+        prod {
+            matchingFallbacks = ['prod']
+            applicationIdSuffix '.trieiro'
+        }
+    }
+}

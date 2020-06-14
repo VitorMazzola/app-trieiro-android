@@ -6,10 +6,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
+        android:id="@+id/tvNews"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Noticias"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:gravity="center"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />

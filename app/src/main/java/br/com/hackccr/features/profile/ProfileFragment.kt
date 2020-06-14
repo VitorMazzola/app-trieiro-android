@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import br.com.hackccr.R
-import br.com.hackccr.features.news.NewsFragment
 
 class ProfileFragment: Fragment() {
 

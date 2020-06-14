@@ -33,6 +33,7 @@ class TabActivity: BaseActivity(), TabView, FragNavController.RootFragmentListen
 
     private val fragNavController: FragNavController = FragNavController(supportFragmentManager, R.id.content)
     override val numberOfRootFragments: Int = 8
+    private var menu: Menu? = null
 
     companion object {
         const val PARAM_ACTIVE_TAB = "PARAM_ACTIVE_TAB"
@@ -86,14 +87,20 @@ class TabActivity: BaseActivity(), TabView, FragNavController.RootFragmentListen
         } catch (ignored: Exception) {
         }
 
-        bottomBar.setOnTabSelectListener {tabId ->
+        bottomBar.setOnTabSelectListener { tabId ->
             when(tabId) {
                 R.id.navigation_map -> {
                     checkPermissions()
                 }
-                R.id.navigation_telemedicine -> fragNavController.switchTab(TELEMEDICINE_TAB)
-                R.id.navigation_news -> fragNavController.switchTab(NEWS_TAB)
-                R.id.navigation_profile -> fragNavController.switchTab(PROFILE_TAB)
+                R.id.navigation_telemedicine -> {
+                    fragNavController.switchTab(TELEMEDICINE_TAB)
+                }
+                R.id.navigation_news -> {
+                    fragNavController.switchTab(NEWS_TAB)
+                }
+                R.id.navigation_profile -> {
+                    fragNavController.switchTab(PROFILE_TAB)
+                }
             }
         }
     }
@@ -118,7 +125,9 @@ class TabActivity: BaseActivity(), TabView, FragNavController.RootFragmentListen
 
     override fun onFragmentTransaction(fragment: Fragment?, transactionType: FragNavController.TransactionType) {}
 
-    override fun onTabTransaction(fragment: Fragment?, index: Int) {}
+    override fun onTabTransaction(fragment: Fragment?, index: Int) {
+        configToolbar(fragment, this.menu?.findItem(R.id.settings_menu))
+    }
 
     override fun onBackPressed() {
         super.onBackPressed()
@@ -169,6 +178,7 @@ class TabActivity: BaseActivity(), TabView, FragNavController.RootFragmentListen
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        this.menu = menu
         menuInflater.inflate(R.menu.menu_settings, menu)
         return true
     }
