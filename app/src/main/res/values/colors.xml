@@ -12,6 +12,7 @@
     <color name="gray4">#8F8F8F</color>
     <color name="cyan">#5E89D3</color>
     <color name="gray">#333333</color>
+    <color name="black_50">#80000000</color>
 
     <color name="map_red">#80e53935</color>
     <color name="map_yellow">#80e2d704</color>

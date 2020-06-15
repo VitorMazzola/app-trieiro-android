@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment
 import br.com.hackccr.BuildConfig
 import br.com.hackccr.R
 import br.com.hackccr.features.maps.MapsFragment
-import br.com.hackccr.features.news.NewsFragment
+import br.com.hackccr.features.courses.CoursesFragment
 import br.com.hackccr.features.profile.ProfileFragment
 import br.com.hackccr.features.telemedicine.TelemedicineFragment
 import br.com.hackccr.util.BaseActivity
@@ -119,7 +119,7 @@ class TabActivity: BaseActivity(), TabView, FragNavController.RootFragmentListen
         when(index) {
             MAP_TAB -> return MapsFragment.newInstance()
             TELEMEDICINE_TAB -> return TelemedicineFragment.newInstance()
-            COURSE_TAB -> return NewsFragment.newInstance()
+            COURSE_TAB -> return CoursesFragment.newInstance()
             AWARDS_TAB -> return ProfileFragment.newInstance()
         }
         throw IllegalStateException("TabActivity - Invalid fragment called:$index")
