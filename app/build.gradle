@@ -16,8 +16,8 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField "String", "API_URL", "\"https://c5e0aac44d23.ngrok.io/v1\""
-        resValue "string", "application_name", "Trieiro"
+        buildConfigField "String", "API_URL", "\"http://trecho-env.eba-tnkf6vsg.us-east-2.elasticbeanstalk.com/v1/\""
+        resValue "string", "application_name", "Trecho"
         resValue "string", "google_maps_key", "AIzaSyDAiq_XS8wIQBAf1H73tUVOkWGdjd-AuXE"
     }
 
@@ -62,6 +62,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.google.maps.android:android-maps-utils:1.0.2'
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.getbase:floatingactionbutton:1.10.1'
 
     //Dependency Injection
     implementation 'com.google.dagger:dagger:2.24'

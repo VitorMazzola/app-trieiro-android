@@ -18,15 +18,15 @@ open class BaseActivity : AppCompatActivity() {
                     isMenuVisible(menu, true)
                 }
                 is TelemedicineFragment -> {
-                    title = "Telemedicina"
+                    title = "Saúde"
                     isMenuVisible(menu, false)
                 }
                 is NewsFragment -> {
-                    title = "Informativo"
+                    title = "Cursos"
                     isMenuVisible(menu, false)
                 }
                 is ProfileFragment -> {
-                    title = "Perfil"
+                    title = "Prêmios"
                     isMenuVisible(menu, false)
                 }
                 else -> {}

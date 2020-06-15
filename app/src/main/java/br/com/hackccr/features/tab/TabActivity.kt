@@ -40,13 +40,15 @@ class TabActivity: BaseActivity(), TabView, FragNavController.RootFragmentListen
 
         const val MAP_TAB = FragNavController.TAB1
         const val TELEMEDICINE_TAB = FragNavController.TAB2
-        const val NEWS_TAB = FragNavController.TAB3
-        const val PROFILE_TAB = FragNavController.TAB4
+        const val COURSE_TAB = FragNavController.TAB3
+        //const val PROFILE_TAB = FragNavController.TAB4
+        const val AWARDS_TAB = FragNavController.TAB4
 
         const val MAP_VALUE = "map"
         const val TELEMEDICINE_VALUE = "telemedicine"
-        const val NEWS_VALUE = "news"
+        const val COURSE_VALUE = "news"
         const val PROFILE_VALUE = "profile"
+        const val AWARDS_VALUE = "Prêmios"
 
         @JvmStatic
         fun start(context: Context) {
@@ -96,10 +98,10 @@ class TabActivity: BaseActivity(), TabView, FragNavController.RootFragmentListen
                     fragNavController.switchTab(TELEMEDICINE_TAB)
                 }
                 R.id.navigation_news -> {
-                    fragNavController.switchTab(NEWS_TAB)
+                    fragNavController.switchTab(COURSE_TAB)
                 }
-                R.id.navigation_profile -> {
-                    fragNavController.switchTab(PROFILE_TAB)
+                R.id.navigation_awards -> {
+                    fragNavController.switchTab(AWARDS_TAB)
                 }
             }
         }
@@ -117,8 +119,8 @@ class TabActivity: BaseActivity(), TabView, FragNavController.RootFragmentListen
         when(index) {
             MAP_TAB -> return MapsFragment.newInstance()
             TELEMEDICINE_TAB -> return TelemedicineFragment.newInstance()
-            NEWS_TAB -> return NewsFragment.newInstance()
-            PROFILE_TAB -> return ProfileFragment.newInstance()
+            COURSE_TAB -> return NewsFragment.newInstance()
+            AWARDS_TAB -> return ProfileFragment.newInstance()
         }
         throw IllegalStateException("TabActivity - Invalid fragment called:$index")
     }
@@ -188,6 +190,10 @@ class TabActivity: BaseActivity(), TabView, FragNavController.RootFragmentListen
 
         if (id == R.id.settings_menu) {
             Toast.makeText(this, "Configurações", Toast.LENGTH_SHORT).show()
+            return true
+        }
+        if(id == R.id.search_menu) {
+            Toast.makeText(this, "Pesquisar", Toast.LENGTH_SHORT).show()
             return true
         }
 

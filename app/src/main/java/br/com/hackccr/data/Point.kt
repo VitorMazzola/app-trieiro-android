@@ -1,5 +1,6 @@
 package br.com.hackccr.data
 
+import br.com.hackccr.util.DateUtil
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
@@ -18,10 +19,12 @@ data class Point(
     @SerializedName("sempre_aberto") val alwaysOpen : String,
     @SerializedName("horario_abertura") val openingTime : String,
     @SerializedName("horario_fechamento") val closingTime : String,
-    @SerializedName("observacoes") val observations : String,
+    @SerializedName("observacoes") val observations : String?,
     @SerializedName("status") val status : String,
     @SerializedName("longitude") val lng : String,
-    @SerializedName("latitude") val lat : String
+    @SerializedName("latitude") val lat : String,
+    @SerializedName("rating") val rating: Int,
+    @SerializedName("distance") val distance: Long
 ) : Serializable {
 
     fun getCategory() : CategoryEnum {
@@ -36,5 +39,14 @@ data class Point(
             CategoryEnum.CONVENIENCE_STORE.value -> CategoryEnum.CONVENIENCE_STORE
             else -> CategoryEnum.DEFAULT
         }
+    }
+
+    fun getAddress() : String {
+        return "BR ${br}, KM $km, $city - $sg_uf"
+    }
+
+    fun getTime() : String {
+        return "${DateUtil.getFormatedDateTime(openingTime, "HH:mm:ss", "HH:mm")} " +
+                "- ${DateUtil.getFormatedDateTime(closingTime, "HH:mm:ss", "HH:mm")}"
     }
 }

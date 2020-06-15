@@ -7,4 +7,13 @@
     <color name="gray5">#F1F0EF</color>
     <color name="disable_tab">#D1D3D4</color>
     <color name="security">#D13030</color>
+    <color name="black">#000000</color>
+    <color name="yellow">#ffd700</color>
+    <color name="gray4">#8F8F8F</color>
+    <color name="cyan">#5E89D3</color>
+    <color name="gray">#333333</color>
+
+    <color name="map_red">#80e53935</color>
+    <color name="map_yellow">#80e2d704</color>
+    <color name="map_blue">#805E89D3</color>
 </resources>

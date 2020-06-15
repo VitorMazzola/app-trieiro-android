@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/background_bottom_sheet">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/background_bottom_sheet">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/roboto_bold"
+            android:textColor="@color/cyan"
+            android:textSize="20sp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="Cuidado! Zona de Covid-19" />
+
+        <TextView
+            android:id="@+id/tvDistance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/roboto_bold"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            android:text="600m de distância" />
+
+        <TextView
+            android:id="@+id/tvObservations"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="40dp"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/gray4"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/tvDistance"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="Banheiro, Self - Service, Chuveiro" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

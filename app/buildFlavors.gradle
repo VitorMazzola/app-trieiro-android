@@ -6,25 +6,25 @@ android {
     productFlavors {
         develop {
             matchingFallbacks = ['dev']
-            applicationIdSuffix '.trieiro.dev'
+            applicationIdSuffix '.trecho.dev'
 
-            buildConfigField "String", "API_URL", "\"http://trieiro.us-east-2.elasticbeanstalk.com/v1/\""
-            resValue "string", "application_name", "Trieiro - Dev"
+            buildConfigField "String", "API_URL", "\"http://trecho-env.eba-tnkf6vsg.us-east-2.elasticbeanstalk.com/v1/\""
+            resValue "string", "application_name", "Trecho - Dev"
             resValue "string", "google_maps_key", "AIzaSyDAiq_XS8wIQBAf1H73tUVOkWGdjd-AuXE"
         }
 
         homolog {
             matchingFallbacks = ['homolog']
-            applicationIdSuffix '.trieiro.pre'
+            applicationIdSuffix '.trecho.pre'
 
-            buildConfigField "String", "API_URL", "\"https://c5e0aac44d23.ngrok.io/v1\""
-            resValue "string", "application_name", "Trieiro - HML"
+            buildConfigField "String", "API_URL", "\"http://trecho-env.eba-tnkf6vsg.us-east-2.elasticbeanstalk.com/v1/\""
+            resValue "string", "application_name", "Trecho - HML"
             resValue "string", "google_maps_key", "AIzaSyDAiq_XS8wIQBAf1H73tUVOkWGdjd-AuXE"
         }
 
         prod {
             matchingFallbacks = ['prod']
-            applicationIdSuffix '.trieiro'
+            applicationIdSuffix '.trecho'
         }
     }
 }

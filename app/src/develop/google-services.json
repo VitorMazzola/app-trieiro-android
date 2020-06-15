@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:789639762441:android:d59eaa66252cacc4789ed8",
+        "mobilesdk_app_id": "1:789639762441:android:694d4552f0b87d43789ed8",
         "android_client_info": {
-          "package_name": "br.com.hackccr.trieiro.dev"
+          "package_name": "br.com.hackccr.trecho.dev"
         }
       },
       "oauth_client": [

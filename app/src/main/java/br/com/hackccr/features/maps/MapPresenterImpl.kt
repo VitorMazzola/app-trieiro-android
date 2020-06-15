@@ -9,17 +9,32 @@ class MapPresenterImpl(private val view: MapView,
 
     private val subscriptions: SubscriptionList = SubscriptionList()
 
-    override fun onCreate() {
-        getPointsMaps()
+    override fun onCreate(latLng: LatLng) {
+        getPointsMaps(latLng)
+        getCovidCases(latLng)
     }
 
-    private fun getPointsMaps() {
-        subscriptions.add(interactor.getPoints()
+    private fun getPointsMaps(latLng: LatLng) {
+        subscriptions.add(interactor.getPoints(latLng)
             .compose(RxComposer.ioThread())
             .toList()
             .subscribe({
                 it.forEach { response ->
                     view.configMapCategory(response)
+                }
+            }) { e ->
+                view.showError(e)
+            }
+        )
+    }
+
+    private fun getCovidCases(latLng: LatLng) {
+        subscriptions.add(interactor.getCovidCases(latLng)
+            .compose(RxComposer.ioThread())
+            .toList()
+            .subscribe({
+                it.forEach { response ->
+                    view.configMapCovid(response)
                 }
             }) { e ->
                 view.showError(e)

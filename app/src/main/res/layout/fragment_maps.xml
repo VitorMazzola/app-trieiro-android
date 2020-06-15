@@ -16,13 +16,51 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabSecurity"
+        android:id="@+id/fabWarning"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:src="@drawable/ic_security"
-        android:backgroundTint="@color/security"
+        android:src="@drawable/ic_warning"
+        android:backgroundTint="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"/>
+    
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:fab_addButtonSize="normal"
+        app:fab_addButtonColorNormal="@color/colorPrimary"
+        app:fab_addButtonColorPressed="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="visible">
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_icon="@drawable/ic_police"
+            app:fab_colorNormal="@color/colorPrimary"
+            app:fab_size="normal"
+            app:fab_colorPressed="@color/colorPrimaryDark"/>
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_icon="@drawable/ic_car_help"
+            app:fab_colorNormal="@color/colorPrimary"
+            app:fab_size="normal"
+            app:fab_colorPressed="@color/colorPrimaryDark"/>
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_colorNormal="@color/colorPrimary"
+            app:fab_size="normal"
+            app:fab_icon="@drawable/ic_truck"
+            app:fab_colorPressed="@color/colorPrimaryDark"/>
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

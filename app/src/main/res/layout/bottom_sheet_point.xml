@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@android:color/transparent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/background_bottom_sheet">
+
+        <TextView
+            android:id="@+id/tvCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Restaurante" />
+
+        <TextView
+            android:id="@+id/tvDistance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/roboto_bold"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/tvCategory"
+            tools:text="600m de distância" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="16dp"
+            android:background="@color/gray5"
+            app:layout_constraintTop_toBottomOf="@id/tvDistance"/>
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            tools:text="Restaurante do Zezé" />
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            style="?android:attr/ratingBarStyleIndicator"
+            android:theme="@style/RatingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:rating="0"
+            android:numStars="5"
+            android:stepSize="0.5"
+            android:progressTint="@color/yellow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvName"/>
+
+        <TextView
+            android:id="@+id/tvObservations"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/gray4"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/ratingBar"
+            tools:text="Banheiro, Self - Service, Chuveiro" />
+
+        <Button
+            android:id="@+id/btComments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="Comentários"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/roboto_medium"
+            app:layout_constraintTop_toBottomOf="@id/tvObservations"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/fabNavigate"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        android:layout_marginBottom="-72dp"-->
+<!--        android:backgroundTint="@color/colorPrimary"-->
+<!--        android:src="@drawable/ic_route"-->
+<!--        app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
+<!--        app:layout_constraintEnd_toEndOf="parent" />-->
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
