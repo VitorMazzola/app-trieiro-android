@@ -84,8 +84,7 @@ class MapsFragment : Fragment(), MapView, OnMapReadyCallback, GoogleApiClient.Co
         mMap.clear()
         mLastLocation = location
 
-//        val latLng = LatLng(mLastLocation.latitude, mLastLocation.longitude)
-        val latLng = LatLng(-23.4286353, -46.4119596)
+        val latLng = LatLng(mLastLocation.latitude, mLastLocation.longitude)
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 11f))
         mMap.addMarker(MarkerOptions()
             .position(latLng)
