@@ -38,17 +38,10 @@ class TabActivity: BaseActivity(), TabView, FragNavController.RootFragmentListen
     companion object {
         const val PARAM_ACTIVE_TAB = "PARAM_ACTIVE_TAB"
 
-        const val MAP_TAB = FragNavController.TAB1
-        const val TELEMEDICINE_TAB = FragNavController.TAB2
+        const val TELEMEDICINE_TAB = FragNavController.TAB1
+        const val MAP_TAB = FragNavController.TAB2
         const val COURSE_TAB = FragNavController.TAB3
-        //const val PROFILE_TAB = FragNavController.TAB4
         const val AWARDS_TAB = FragNavController.TAB4
-
-        const val MAP_VALUE = "map"
-        const val TELEMEDICINE_VALUE = "telemedicine"
-        const val COURSE_VALUE = "news"
-        const val PROFILE_VALUE = "profile"
-        const val AWARDS_VALUE = "Prêmios"
 
         @JvmStatic
         fun start(context: Context) {
@@ -76,12 +69,12 @@ class TabActivity: BaseActivity(), TabView, FragNavController.RootFragmentListen
             })
         }
 
-        fragNavController.initialize(MAP_TAB, savedInstanceState)
+        fragNavController.initialize(TELEMEDICINE_TAB, savedInstanceState)
 
         if (savedInstanceState == null && intent.hasExtra(PARAM_ACTIVE_TAB)) {
-            bottomBar.selectTabAtPosition(intent.extras?.getInt(PARAM_ACTIVE_TAB) ?: MAP_TAB)
+            bottomBar.selectTabAtPosition(intent.extras?.getInt(PARAM_ACTIVE_TAB) ?: TELEMEDICINE_TAB)
         } else {
-            bottomBar.selectTabAtPosition(MAP_TAB)
+            bottomBar.selectTabAtPosition(TELEMEDICINE_TAB)
         }
 
         try {
@@ -91,18 +84,12 @@ class TabActivity: BaseActivity(), TabView, FragNavController.RootFragmentListen
 
         bottomBar.setOnTabSelectListener { tabId ->
             when(tabId) {
+                R.id.navigation_telemedicine -> fragNavController.switchTab(TELEMEDICINE_TAB)
                 R.id.navigation_map -> {
                     checkPermissions()
                 }
-                R.id.navigation_telemedicine -> {
-                    fragNavController.switchTab(TELEMEDICINE_TAB)
-                }
-                R.id.navigation_news -> {
-                    fragNavController.switchTab(COURSE_TAB)
-                }
-                R.id.navigation_awards -> {
-                    fragNavController.switchTab(AWARDS_TAB)
-                }
+                R.id.navigation_news -> fragNavController.switchTab(COURSE_TAB)
+                R.id.navigation_awards -> fragNavController.switchTab(AWARDS_TAB)
             }
         }
     }

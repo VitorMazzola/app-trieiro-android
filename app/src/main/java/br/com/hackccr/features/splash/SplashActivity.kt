@@ -1,6 +1,5 @@
 package br.com.hackccr.features.splash
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import br.com.hackccr.R
@@ -16,7 +15,7 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun routeToAppropriatePage() {
-        startActivity(Intent(this, TabActivity::class.java))
+        TabActivity.start(this)
         finish()
     }
 

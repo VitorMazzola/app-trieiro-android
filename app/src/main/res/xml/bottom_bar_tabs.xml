@@ -2,14 +2,14 @@
 <tabs>
     <tab
         barColorWhenSelected="@android:color/transparent"
-        icon="@drawable/ic_tab_map"
-        id="@+id/navigation_map"
-        title="Mapa" />
-    <tab
-        barColorWhenSelected="@android:color/transparent"
         icon="@drawable/ic_tab_telemedice"
         id="@+id/navigation_telemedicine"
         title="Saúde" />
+    <tab
+        barColorWhenSelected="@android:color/transparent"
+        icon="@drawable/ic_tab_map"
+        id="@+id/navigation_map"
+        title="Mapa" />
     <tab
         barColorWhenSelected="@android:color/transparent"
         icon="@drawable/ic_tab_news"

@@ -1,9 +1,16 @@
 package br.com.hackccr.features.maps
 
+import android.Manifest
+import android.annotation.SuppressLint
+import android.app.AlertDialog
+import android.content.Context
+import android.content.Intent
 import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.location.Location
+import android.net.Uri
 import android.os.Bundle
+import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +18,7 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import br.com.hackccr.App
+import br.com.hackccr.BuildConfig
 import br.com.hackccr.R
 import br.com.hackccr.data.CategoryEnum
 import br.com.hackccr.data.CityCovid
@@ -18,6 +26,7 @@ import br.com.hackccr.data.IncidenceEnum
 import br.com.hackccr.data.Point
 import br.com.hackccr.features.maps.di.DaggerMapComponent
 import br.com.hackccr.features.maps.di.MapModule
+import br.com.hackccr.features.tab.TabActivity
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.location.LocationListener
@@ -27,6 +36,11 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.*
+import com.karumi.dexter.Dexter
+import com.karumi.dexter.MultiplePermissionsReport
+import com.karumi.dexter.PermissionToken
+import com.karumi.dexter.listener.PermissionRequest
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import kotlinx.android.synthetic.main.fragment_maps.*
 import javax.inject.Inject
 
@@ -62,6 +76,7 @@ class MapsFragment : Fragment(), MapView, OnMapReadyCallback, GoogleApiClient.Co
             .inject(this)
     }
 
+    @SuppressLint("MissingPermission")
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
         mMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(requireContext(), R.raw.map_style))
@@ -88,10 +103,11 @@ class MapsFragment : Fragment(), MapView, OnMapReadyCallback, GoogleApiClient.Co
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 11f))
         mMap.addMarker(MarkerOptions()
             .position(latLng)
-            .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_truck_map)))
+            .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_map_marker)))
         presenter.onCreate(latLng)
     }
 
+    @SuppressLint("MissingPermission")
     override fun onConnected(bundle: Bundle?) {
         mLocationRequest = LocationRequest()
         mLocationRequest.interval = 60000
